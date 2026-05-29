@@ -127,7 +127,7 @@ table.cal{width:100%;border-collapse:collapse;}
 </header>
 <div class="controls">
   <label>作業員:</label>
-  <select id="userSel" onchange="showUser(this.value)"></select>
+  <select id="userSel" onchange="showUser(this.value)"><option value="上野 直哉">上野 直哉</option><option value="佐久間 裕一">佐久間 裕一</option><option value="前山 智睦">前山 智睦</option><option value="吉岡 大輔">吉岡 大輔</option><option value="塩澤 庸治">塩澤 庸治</option><option value="大久保 慶信">大久保 慶信</option><option value="大熊 康範">大熊 康範</option><option value="小島 謙一郎">小島 謙一郎</option><option value="尾上 一茂">尾上 一茂</option><option value="岡野 友哉">岡野 友哉</option><option value="永峰 健太郎">永峰 健太郎</option><option value="笈川 司">笈川 司</option><option value="芳松 昭先">芳松 昭先</option><option value="荒川 昭夫">荒川 昭夫</option></select>
 </div>
 <div class="content">
   <div class="view-tabs">
@@ -474,7 +474,8 @@ function switchView(v,evt){
       const valCls = MVAL_CLASSES[i % MVAL_CLASSES.length];
       const mo = parseInt(ym.split('-')[1]);
 
-';
+      const mDiv = document.createElement('div');
+      mDiv.className = 'sum-month';
       const isZero = s.days === 0;
       mDiv.innerHTML =
         '<div class="sum-month-hdr '+hdrCls+'">'+mo+'月</div>'+
@@ -505,7 +506,6 @@ function switchView(v,evt){
 
 /* ---------- populate dropdown ---------- */
 const sel=document.getElementById('userSel');
-
 buildScheduleMonthBtns();
 showUser(Object.keys(DATA)[0]);
 </script>
